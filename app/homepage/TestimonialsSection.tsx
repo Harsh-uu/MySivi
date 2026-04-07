@@ -37,28 +37,27 @@ export default function TestimonialsSection() {
         <p className="inline-flex rounded-full bg-[#666cfb]/14 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#666cfb]">
           Testimonials
         </p>
-        <h2 className="mt-3 font-heading text-3xl font-semibold text-black sm:text-4xl">
+        <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">
           Real learners, real speaking confidence
         </h2>
-        <p className="mx-auto mt-2 max-w-3xl text-[#59607a]">
+        <p className="mx-auto mt-2 max-w-3xl px-4 text-[#59607a]">
           What users across India are saying about their MySivi journey.
         </p>
       </div>
 
       <div className="mx-auto mt-5 w-full max-w-304">
         <Carousel
-          opts={{ align: "start", loop: true, containScroll: "trimSnaps" }}
+          opts={{ align: "center", loop: true, containScroll: "trimSnaps" }}
           setApi={setCarouselApi}
           className="w-full"
         >
-          {/* px-4/px-6 moved here so shadows aren't clipped */}
-          <CarouselContent className="-ml-4 px-4 py-3 sm:px-6">
+          <CarouselContent className="px-4 py-3 sm:px-6">
             {testimonials.map((testimonial) => (
               <CarouselItem
                 key={`${testimonial.name}-${testimonial.location}`}
-                className="flex pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+                className="basis-full sm:basis-1/2 lg:basis-1/3 pl-0"
               >
-                <div className="flex h-88 w-full flex-col rounded-2xl border border-[#e4e9ff] bg-white p-5 shadow-[0_2px_12px_rgba(102,108,251,0.06)] sm:h-96 sm:p-6">
+                <div className="flex h-92 w-full flex-col rounded-2xl border border-[#e4e9ff] bg-white p-5 shadow-[0_2px_12px_rgba(102,108,251,0.06)] sm:h-96 sm:p-6">
                   
                   {/* Stars */}
                   <div className="mb-4 flex items-center gap-0.5" aria-label="5 star rating">

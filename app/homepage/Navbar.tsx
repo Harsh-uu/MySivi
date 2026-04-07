@@ -56,7 +56,6 @@ export default function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             onClick={toggleMenu}
-            onPointerUp={toggleMenu}
             className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#cdd8ff] border-b-2 border-b-[#9eb0f2] bg-[linear-gradient(180deg,#ffffff_0%,#f0f4ff_100%)] text-[#34426f] transition active:translate-y-px active:border-b-[#8da0ea] md:hidden"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -70,7 +69,6 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={handleMobileNav}
-                  onPointerUp={handleMobileNav}
                   className="inline-flex w-full items-center justify-center rounded-md border border-[#cdd8ff] border-b-2 border-b-[#9eb0f2] bg-[linear-gradient(180deg,#ffffff_0%,#f0f4ff_100%)] px-4 py-2 text-sm font-semibold text-[#28314f]"
                 >
                   Influencer Program

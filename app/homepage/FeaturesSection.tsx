@@ -51,7 +51,7 @@ export default function FeaturesSection() {
                   priority={index === 0}
                 />
                 {/* Subtle gradient overlay at bottom so text reads cleanly */}
-                <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-12 bg-linear-to-t from-white to-transparent" />
               </div>
 
               {/* Text */}
