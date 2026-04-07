@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
             {testimonials.map((testimonial) => (
               <CarouselItem
                 key={`${testimonial.name}-${testimonial.location}`}
-                className="flex pl-4 basis-[88%] sm:basis-1/2 lg:basis-1/3"
+                className="flex pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
               >
                 <div className="flex h-88 w-full flex-col rounded-2xl border border-[#e4e9ff] bg-white p-5 shadow-[0_2px_12px_rgba(102,108,251,0.06)] sm:h-96 sm:p-6">
                   

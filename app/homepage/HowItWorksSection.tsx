@@ -21,35 +21,53 @@ export default function HowItWorksSection() {
     };
 
     const onScroll = () => {
-      if (!isDesktop()) {
-        resetCards();
-        return;
-      }
+      if (window.innerWidth >= 1024) {
+        // Desktop scroll effect
+        const cards = cardsRef.current;
 
-      const cards = cardsRef.current;
+        for (let i = 0; i < cards.length - 1; i += 1) {
+          const card = cards[i];
+          const nextCard = cards[i + 1];
 
-      for (let i = 0; i < cards.length - 1; i += 1) {
-        const card = cards[i];
-        const nextCard = cards[i + 1];
+          if (!card || !nextCard) {
+            continue;
+          }
 
-        if (!card || !nextCard) {
-          continue;
+          const cardRect = card.getBoundingClientRect();
+          const nextRect = nextCard.getBoundingClientRect();
+          const overlap = cardRect.bottom - nextRect.top;
+
+          if (overlap <= 0) {
+            card.style.transform = "scale(1) translateY(0px)";
+            continue;
+          }
+
+          const progress = Math.min(overlap / cardRect.height, 1);
+          const scale = 1 - progress * 0.06;
+          const pushDown = progress * 14;
+
+          card.style.transform = `scale(${scale}) translateY(${pushDown}px)`;
         }
+      } else {
+        // Mobile scroll effect - cards stack with opacity
+        const cards = cardsRef.current;
+        const viewportCenter = window.innerHeight / 2;
 
-        const cardRect = card.getBoundingClientRect();
-        const nextRect = nextCard.getBoundingClientRect();
-        const overlap = cardRect.bottom - nextRect.top;
+        for (let i = 0; i < cards.length; i++) {
+          const card = cards[i];
+          if (!card) continue;
 
-        if (overlap <= 0) {
-          card.style.transform = "scale(1) translateY(0px)";
-          continue;
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.top + cardRect.height / 2;
+          const distanceFromCenter = Math.abs(cardCenter - viewportCenter);
+          const maxDistance = window.innerHeight * 0.8;
+          const progress = Math.max(0, 1 - distanceFromCenter / maxDistance);
+
+          const scale = 1 - (1 - progress) * 0.04;
+          const translateY = (1 - progress) * 12;
+
+          card.style.transform = `scale(${scale}) translateY(${translateY}px)`;
         }
-
-        const progress = Math.min(overlap / cardRect.height, 1);
-        const scale = 1 - progress * 0.06;
-        const pushDown = progress * 14;
-
-        card.style.transform = `scale(${scale}) translateY(${pushDown}px)`;
       }
     };
 

@@ -43,7 +43,7 @@ export default function CaseStudySection() {
                     </a>
                   </div>
 
-                  <div className="order-1 max-h-96 overflow-hidden rounded-2xl sm:order-2">
+                  <div className="order-1 h-72 overflow-hidden rounded-2xl sm:order-2 sm:h-80 lg:max-h-96">
                     <div className="h-full overflow-hidden rounded-2xl">
                       <Image
                         src={study.image}

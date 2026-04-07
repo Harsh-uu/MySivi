@@ -2,37 +2,14 @@
 
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => {
-    console.log("Toggle menu called");
-    setIsMenuOpen((prev) => {
-      const newState = !prev;
-      console.log("New menu state:", newState);
-      return newState;
-    });
+    setIsMenuOpen((prev) => !prev);
   };
-
-  useEffect(() => {
-    const button = menuButtonRef.current;
-    if (!button) return;
-
-    const handleClick = (e: Event) => {
-      console.log("Native click event fired");
-      e.preventDefault();
-      e.stopPropagation();
-      toggleMenu();
-    };
-
-    button.addEventListener("click", handleClick);
-    return () => {
-      button.removeEventListener("click", handleClick);
-    };
-  }, []);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -74,36 +51,40 @@ export default function Navbar() {
           </div>
 
           <button
-            ref={menuButtonRef}
             type="button"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
-            className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border border-[#cdd8ff] border-b-2 border-b-[#9eb0f2] bg-[linear-gradient(180deg,#ffffff_0%,#f0f4ff_100%)] text-[#34426f] transition active:translate-y-px active:border-b-[#8da0ea] focus:outline-none focus:ring-2 focus:ring-[#666cfb] focus:ring-offset-2 md:hidden"
+            onClick={toggleMenu}
+            onPointerUp={toggleMenu}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#cdd8ff] border-b-2 border-b-[#9eb0f2] bg-[linear-gradient(180deg,#ffffff_0%,#f0f4ff_100%)] text-[#34426f] transition active:translate-y-px active:border-b-[#8da0ea] md:hidden"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
         {isMenuOpen ? (
-          <div id="mobile-navigation" className="border-t border-[#dbe3ff] pb-3 pt-3 md:hidden">
-            <div className="flex flex-col gap-2">
-              <button
-                type="button"
-                onClick={handleMobileNav}
-                className="inline-flex w-full items-center justify-center rounded-md border border-[#cdd8ff] border-b-2 border-b-[#9eb0f2] bg-[linear-gradient(180deg,#ffffff_0%,#f0f4ff_100%)] px-4 py-2 text-sm font-semibold text-[#28314f]"
-              >
-                Influencer Program
-              </button>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.practice.ninja_study&referrer=adjust_reftag%3Dc1EvN0tvx2Gy3%26utm_source%3DSocial%2BProd%26utm_campaign%3Dwebsite"
-                target="_blank"
-                rel="noreferrer"
-                onClick={closeMenu}
-                className="inline-flex w-full items-center justify-center rounded-sm border border-[#4b57d9] border-b-2 border-b-[#2f3faa] bg-[linear-gradient(180deg,#6f79ff_0%,#555bef_100%)] px-4 py-2 text-sm font-semibold text-white"
-              >
-                Download App
-              </a>
+          <div id="mobile-navigation" className="fixed left-0 right-0 top-16 z-40 border-b border-[#dbe3ff] bg-[#fafbff] pb-3 pt-3 md:hidden">
+            <div className="mx-auto w-full max-w-304 px-4 sm:px-6">
+              <div className="flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={handleMobileNav}
+                  onPointerUp={handleMobileNav}
+                  className="inline-flex w-full items-center justify-center rounded-md border border-[#cdd8ff] border-b-2 border-b-[#9eb0f2] bg-[linear-gradient(180deg,#ffffff_0%,#f0f4ff_100%)] px-4 py-2 text-sm font-semibold text-[#28314f]"
+                >
+                  Influencer Program
+                </button>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.practice.ninja_study&referrer=adjust_reftag%3Dc1EvN0tvx2Gy3%26utm_source%3DSocial%2BProd%26utm_campaign%3Dwebsite"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={closeMenu}
+                  className="inline-flex w-full items-center justify-center rounded-sm border border-[#4b57d9] border-b-2 border-b-[#2f3faa] bg-[linear-gradient(180deg,#6f79ff_0%,#555bef_100%)] px-4 py-2 text-sm font-semibold text-white"
+                >
+                  Download App
+                </a>
+              </div>
             </div>
           </div>
         ) : null}
