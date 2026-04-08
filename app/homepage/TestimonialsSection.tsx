@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { testimonials } from "./content";
+import { AnimatedElement } from "./AnimatedElement";
 
 export default function TestimonialsSection() {
   const [carouselApi, setCarouselApi] = useState<UseEmblaCarouselType[1] | null>(null);
@@ -37,9 +38,11 @@ export default function TestimonialsSection() {
         <p className="inline-flex rounded-full bg-[#666cfb]/14 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#666cfb]">
           Testimonials
         </p>
-        <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">
-          Real learners, real speaking confidence
-        </h2>
+        <AnimatedElement>
+          <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">
+            Real learners, real speaking confidence
+          </h2>
+        </AnimatedElement>
         <p className="mx-auto mt-2 max-w-3xl px-4 text-[#59607a]">
           What users across India are saying about their MySivi journey.
         </p>

@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { caseStudies } from "./content";
+import { AnimatedElement } from "./AnimatedElement";
 
 export default function CaseStudySection() {
   const [carouselApi, setCarouselApi] = useState<UseEmblaCarouselType[1] | null>(null);

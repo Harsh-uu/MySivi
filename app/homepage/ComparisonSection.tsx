@@ -1,4 +1,5 @@
 import { comparisonRows } from "./content";
+import { AnimatedElement } from "./AnimatedElement";
 
 export default function ComparisonSection() {
   const markedFeatures = new Set([
@@ -17,7 +18,9 @@ export default function ComparisonSection() {
         <p className="inline-flex rounded-full bg-[#666cfb]/14 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#666cfb]">
           Feature Comparison
         </p>
-        <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">AI Teacher vs Traditional Teacher</h2>
+        <AnimatedElement>
+          <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">AI Teacher vs Traditional Teacher</h2>
+        </AnimatedElement>
         <p className="mx-auto mt-2 max-w-3xl text-[#59607a] px-4">The smart way to practice speaking without pressure.</p>
         </div>
 

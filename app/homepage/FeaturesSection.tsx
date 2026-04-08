@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { features } from "./content";
+import { AnimatedElement } from "./AnimatedElement";
 
 export default function FeaturesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,9 +26,11 @@ export default function FeaturesSection() {
           <p className="inline-flex rounded-full bg-[#666cfb]/14 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#666cfb]">
             Features
           </p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold text-black sm:text-4xl">
-            Everything you need to speak with confidence
-          </h2>
+          <AnimatedElement>
+            <h2 className="mt-3 font-heading text-3xl font-semibold text-black sm:text-4xl">
+              Everything you need to speak with confidence
+            </h2>
+          </AnimatedElement>
           <p className="mx-auto mt-2 max-w-3xl text-[#59607a]">
             Interactive AI sessions, practical topics, and daily practice
             designed for real fluency.
@@ -56,9 +59,11 @@ export default function FeaturesSection() {
 
               {/* Text */}
               <div className="px-5 py-5">
-                <h3 className="font-heading text-lg font-semibold text-[#3762e3]">
-                  {feature.title}
-                </h3>
+                <AnimatedElement>
+                  <h3 className="font-heading text-lg font-semibold text-[#3762e3]">
+                    {feature.title}
+                  </h3>
+                </AnimatedElement>
                 <p className="mt-1.5 text-sm leading-snug text-[#565c70]">
                   {feature.description}
                 </p>

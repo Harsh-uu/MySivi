@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Download, ClipboardList, Mic, Users, BarChart3 } from "lucide-react";
 import { steps } from "./content";
+import { AnimatedElement } from "./AnimatedElement";
 
 const stepIcons = [Download, ClipboardList, Mic, Users, BarChart3];
 
@@ -47,9 +48,11 @@ export default function HowItWorksSection() {
         <p className="inline-flex rounded-full bg-[#666cfb]/14 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#666cfb]">
           How It Works
         </p>
-        <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">
-          Speak fluently in five guided steps
-        </h2>
+        <AnimatedElement>
+          <h2 className="mt-3 font-heading text-3xl px-4 font-semibold text-black sm:text-4xl">
+            Speak fluently in five guided steps
+          </h2>
+        </AnimatedElement>
         <p className="mx-auto mt-2 max-w-3xl text-[#59607a]">
           Move from hesitation to confidence with a structured daily speaking workflow.
         </p>
@@ -73,9 +76,11 @@ export default function HowItWorksSection() {
               <div className="flex h-full min-h-52 flex-col items-center justify-center sm:justify-between gap-5 text-center lg:flex-row lg:text-left">
               <div className="min-w-0">
                 <div className="mb-4 text-2xl font-semibold uppercase tracking-wide text-[#d1d1d1]">STEP {step.number}</div>
-                <span className="inline-flex bg-[#666cfb] px-2 py-1 font-heading text-3xl font-semibold text-white">
-                  {step.title}
-                </span>
+                <AnimatedElement>
+                  <span className="inline-flex bg-[#666cfb] px-2 py-1 font-heading text-3xl font-semibold text-white">
+                    {step.title}
+                  </span>
+                </AnimatedElement>
                 <p className="mt-4 text-[#3d4662]">{step.description}</p>
               </div>
 

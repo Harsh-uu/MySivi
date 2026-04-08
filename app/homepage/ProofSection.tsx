@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AnimatedElement } from "./AnimatedElement";
 
 export default function ProofSection() {
   return (
@@ -11,7 +12,9 @@ export default function ProofSection() {
         <p className="inline-flex rounded-full bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#666cfb]">
           Investors
         </p>
-        <h2 className="mt-4 font-heading text-3xl font-semibold text-black sm:text-4xl">Backed By</h2>
+        <AnimatedElement>
+          <h2 className="mt-4 font-heading text-3xl font-semibold text-black sm:text-4xl">Backed By</h2>
+        </AnimatedElement>
         <div className="mt-8 flex rounded-lg justify-center border border-[#666cfb]/80 w-fit mx-auto px-6 py-2 shadow-lg">
           <Image src="/YC.png" alt="Y Combinator" width={180} height={72} className="h-auto w-auto object-contain" />
         </div>
